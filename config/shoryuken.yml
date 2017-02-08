@@ -1,0 +1,3 @@
+delay: 1        # The delay in seconds to pause a queue when it's empty. Default 0
+queues:
+  - [default, 1]

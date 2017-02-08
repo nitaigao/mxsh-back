@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: mxsh_development
+  url: <%= ENV['DATABASE_URL'] %>
+
+test:
+  <<: *default
+  database: mxsh_test
+  host: localhost
+
+production:
+  <<: *default
+  database: mxsh_production
+  url: <%= ENV['DATABASE_URL'] %>

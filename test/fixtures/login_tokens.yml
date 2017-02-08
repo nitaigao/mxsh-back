@@ -1,0 +1,7 @@
+signup:
+  email: 'test@example.com'
+  token: <%= LoginToken.new_token %>
+
+user:
+  email: 'test@real.com'
+  token: <%= LoginToken.new_token %>
