@@ -13,4 +13,10 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
       post '/api/authorize', params: { token: login_tokens(:signup).token }
     end
   end
+
+  test "should delete the user token after use" do
+    assert_difference 'LoginToken.count', -1 do
+      post '/api/authorize', params: { token: login_tokens(:signup).token }
+    end
+  end
 end

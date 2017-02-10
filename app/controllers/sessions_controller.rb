@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def authorize
-    login = LoginToken.find_by!(token: authorize_params)#.destroy!
+    login = LoginToken.find_by!(token: authorize_params).destroy!
     @user = User.find_or_create_by(email: login.email)
     @token = JWT.encode({id: @user.id}, nil, 'none')
     cookies[:auth] = {
