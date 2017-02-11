@@ -1,5 +1,5 @@
 class ForwardEmailJob < ApplicationJob
-  queue_as :default
+  queue_as :outbound
 
   SES = Aws::SES::Client.new(region: 'us-east-1')
 
