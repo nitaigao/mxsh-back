@@ -1,4 +1,4 @@
-FROM ruby:2.4.0-onbuild
+FROM ruby:2.4.0-alpine
 
 EXPOSE 4000
 
