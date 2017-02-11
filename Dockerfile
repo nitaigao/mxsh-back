@@ -14,5 +14,3 @@ RUN apk del make gcc g++ python
 RUN rm -rf /var/cache/apk/*
 
 COPY . /app
-
-RUN rake assets:precompile
