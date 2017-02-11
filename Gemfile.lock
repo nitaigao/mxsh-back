@@ -198,6 +198,8 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2016.10)
+      tzinfo (>= 1.0.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -226,7 +228,6 @@ DEPENDENCIES
   sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo
   tzinfo-data
 
 BUNDLED WITH
