@@ -16,7 +16,6 @@ gem 'email_validator', '~> 1.5.0'
 gem 'jwt'
 gem 'jbuilder'
 gem 'sentry-raven'
-gem 'tzinfo-data'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -38,4 +37,5 @@ group :test do
   gem 'guard-minitest'
 end
 
+gem 'tzinfo'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
