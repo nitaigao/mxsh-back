@@ -14,3 +14,7 @@ RUN apk del make gcc g++ python
 RUN rm -rf /var/cache/apk/*
 
 COPY . /app
+
+EXPOSE 4000
+
+ENTRYPOINT bundle exec puma -C config/puma.rb
