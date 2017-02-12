@@ -3,6 +3,11 @@ class BounceJob < ApplicationJob
 
   NOTIFIER = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
 
+  rescue_from ActiveJob::DeserializationError do |ex|
+    Shoryuken.logger.error ex
+    Shoryuken.logger.error ex.backtrace.join("\n")
+  end
+
   def perform(payload)
     puts payload
     # message = JSON.parse(payload["Message"])
