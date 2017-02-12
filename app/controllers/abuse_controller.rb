@@ -1,6 +1,11 @@
 class AbuseController < ApplicationController
-  def bounce
+  def bounces
     BounceJob.perform_later(email_param)
+    render text: 'ok!'
+  end
+
+  def complaints
+    ComplaintJob.perform_later(email_param)
     render text: 'ok!'
   end
 

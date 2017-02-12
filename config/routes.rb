@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     post :authorize, to: 'sessions#authorize', defaults: { format: 'json' }
 
     scope :abuse do
-      post :bounce, to: 'abuse#bounce'
+      post :bounces,    to: 'abuse#bounces'
+      post :complaints, to: 'abuse#complaints'
     end
 
     resources :identities, defaults: { format: 'json' }

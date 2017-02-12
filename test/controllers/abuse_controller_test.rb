@@ -6,7 +6,14 @@ class AbuseControllerTest < ActionDispatch::IntegrationTest
   test "should disable a user on bounce" do
     user = users(:user)
     assert_enqueued_with job: BounceJob, args: [user.email] do
-      post bounce_path, params: { email: user.email }
+      post bounces_path, params: { email: user.email }
+    end
+  end
+
+  test "should disable a user on complaint" do
+    user = users(:user)
+    assert_enqueued_with job: ComplaintJob, args: [user.email] do
+      post complaints_path, params: { email: user.email }
     end
   end
 end
