@@ -9,7 +9,7 @@ class BounceJob < ApplicationJob
 
   def notify_slack(user)
     message = <<-EOS
-    #{user.email} has been disabled
+    #{user.email} has been disabled due to a bounce
     EOS
     
     Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping message, channel: "#support", username: "Bounce", icon_emoji: ":warning:"
