@@ -39,9 +39,7 @@ class ForwardEmailJob < ApplicationJob
           data: message['subject']
         },
       },
-      reply_to_addresses: [
-        message['from'].first['email']
-      ],
+      reply_to_addresses: message['from'].map { |sender| sender['address'] },
       source: "#{message['from'].first['name']} <#{ENV['MAIL_FORWARD_FROM']}>"
     })
   end
