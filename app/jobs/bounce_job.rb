@@ -2,7 +2,8 @@ class BounceJob < ApplicationJob
   queue_as :bounces
 
   def perform(email)
-    User.find_by!(email: email).update!(enabled: false)
+    user = User.find_by!(email: email)
+    user.update!(enabled: false)
     notify_slack(user) if Rails.env.production?
   end
 
