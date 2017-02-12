@@ -8,6 +8,8 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(color: true)]
 
 class ActiveSupport::TestCase
   fixtures :all
+
+  include ActiveJob::TestHelper
 end
 
 def auth_as(user)

@@ -1,6 +1,6 @@
 class AbuseController < ApplicationController
   def bounce
-    User.find_by!(email: email_param).update!(enabled: false)
+    BounceJob.perform_later(email_param)
     render text: 'ok!'
   end
 
