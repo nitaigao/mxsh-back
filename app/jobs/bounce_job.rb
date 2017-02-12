@@ -4,11 +4,12 @@ class BounceJob < ApplicationJob
   NOTIFIER = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
 
   def perform(payload)
-    message = JSON.parse(payload["Message"])
-    recipients = message['bounce']['bouncedRecipients']
-    recipients.each do |recipient|
-      disable recipient['emailAddress'].gsub('<', '').gsub('>', '')
-    end
+    puts payload
+    # message = JSON.parse(payload["Message"])
+    # recipients = message['bounce']['bouncedRecipients']
+    # recipients.each do |recipient|
+    #   disable recipient['emailAddress'].gsub('<', '').gsub('>', '')
+    # end
   end
 
   def disable(email)
