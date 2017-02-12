@@ -39,7 +39,9 @@ class ForwardEmailJob < ApplicationJob
           data: message['subject']
         },
       },
-      reply_to_addresses: [ ],
+      reply_to_addresses: [
+        message['from'].first['email']
+      ],
       source: "#{message['from'].first['name']} <#{ENV['MAIL_FORWARD_FROM']}>"
     })
   end
