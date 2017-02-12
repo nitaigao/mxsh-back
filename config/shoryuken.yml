@@ -1,4 +1,4 @@
 delay: 1
 queues:
   - [outbound, 1]
-  - [bounces, 1]
+  - [bounces, 2]
