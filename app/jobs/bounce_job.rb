@@ -9,7 +9,7 @@ class BounceJob < ApplicationJob
   end
 
   def perform(payload)
-    puts payload
+    Shoryuken.logger.info payload
     # message = JSON.parse(payload["Message"])
     # recipients = message['bounce']['bouncedRecipients']
     # recipients.each do |recipient|
