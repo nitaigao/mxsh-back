@@ -40,6 +40,7 @@ class ForwardEmailJob < ApplicationJob
         },
       },
       reply_to_addresses: message['from'].map { |sender| sender['address'] },
+      return_path: "return@mxsh.io",
       source: "#{message['from'].first['name']} <#{ENV['MAIL_FORWARD_FROM']}>"
     })
   end
