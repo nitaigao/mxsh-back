@@ -40,7 +40,7 @@ class ForwardEmailJob < ApplicationJob
         },
       },
       reply_to_addresses: message['from'].map { |sender| sender['address'] },
-      return_path: ENV['MAIL_RETURN_TO'],
+      return_path: ENV['MAIL_FORWARD_FROM'],
       source: "#{message['from'].first['name']} <#{ENV['MAIL_FORWARD_FROM']}>"
     })
   end
