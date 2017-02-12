@@ -180,6 +180,7 @@ GEM
     sentry-raven (2.3.0)
       faraday (>= 0.7.6, < 1.0)
     shellany (0.0.1)
+    slack-notifier (2.0.0)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -226,6 +227,7 @@ DEPENDENCIES
   sentry-raven
   shoryuken!
   sinatra!
+  slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

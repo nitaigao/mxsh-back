@@ -1,0 +1,11 @@
+{
+  "Type" : "Notification",
+  "MessageId" : "c5c91a5e-4d9c-552f-a9a0-4b478d3d1217",
+  "TopicArn" : "arn:aws:sns:us-east-1:304234435373:bounces",
+  "Message" : "{\"notificationType\":\"Bounce\",\"bounce\":{\"bounceType\":\"Permanent\",\"bounceSubType\":\"General\",\"bouncedRecipients\":[{\"emailAddress\":\"<test@real.com>\",\"action\":\"failed\",\"status\":\"5.1.1\",\"diagnosticCode\":\"smtp; 550 5.1.1 user unknown\"}],\"timestamp\":\"2017-02-12T01:46:09.386Z\",\"feedbackId\":\"0100015a2fffac25-f98e7f84-be12-4497-88a5-7ed9abcbf2a6-000000\",\"remoteMtaIp\":\"205.251.242.49\",\"reportingMTA\":\"dsn; a8-39.smtp-out.amazonses.com\"},\"mail\":{\"timestamp\":\"2017-02-12T01:46:08.000Z\",\"source\":\"Nick Kostelnik <shield@mxsh.io>\",\"sourceArn\":\"arn:aws:ses:us-east-1:304234435373:identity/shield@mxsh.io\",\"sendingAccountId\":\"304234435373\",\"messageId\":\"0100015a2fffaa43-a0250198-8dca-476f-b28c-5a47a5e9d501-000000\",\"destination\":[\"<bounce@simulator.amazonses.com>\"]}}",
+  "Timestamp" : "2017-02-12T01:46:09.428Z",
+  "SignatureVersion" : "1",
+  "Signature" : "kpLuAUhYVxYnQJT8KbEs4x2g3E7l4+5tljGTvuxMUzYLo1RBt8IbkjZAVp5dt2hwXk1ieT6u1rYgY7zvspLCUWhW/GRC0toIruUv3UjyB+xpQhgjd1qcR8ryAnVG9IL6MAZw2PjP92INjtd9tMSd+3JQvyexLMuBv3U5sX8ZH6VKCTxBqVLpF4ordcv+sBuMOjy8Fj20sHo9way6CUBraPwWWqIx+7Kk5Vsu+G3OYwMICF32u8bQu8TDOOj+PaIdzxUthDQrV/4YBQQjokA9c4U96nJX+zx88vFiEIUHoqJsw08r1dF5wP+Tya9RBTeCXNBL6qGMqoWL8juZdMf00A==",
+  "SigningCertURL" : "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-b95095beb82e8f6a046b3aafc7f4149a.pem",
+  "UnsubscribeURL" : "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:304234435373:bounces:ceb5bd6f-731f-41ca-94cc-9d0686adaea1"
+}

@@ -16,6 +16,7 @@ gem 'email_validator', '~> 1.5.0'
 gem 'jwt'
 gem 'jbuilder'
 gem 'sentry-raven'
+gem 'slack-notifier'
 
 group :development, :test do
   gem 'byebug', platform: :mri
