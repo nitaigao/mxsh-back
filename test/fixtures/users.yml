@@ -1,3 +1,7 @@
 user:
   email: 'test@real.com'
   enabled: true
+
+disabled:
+  email: 'disabled@real.com'
+  enabled: false

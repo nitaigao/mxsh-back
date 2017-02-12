@@ -1,3 +1,7 @@
 standard:
   email: 'test@masked.com'
   user: user
+
+disabled:
+  email: 'disabled@masked.com'
+  user: disabled

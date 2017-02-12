@@ -8,7 +8,11 @@ class ForwardEmailJob < ApplicationJob
     identity = Identity.find_by(email: recipient)
     if identity.present?
       puts "Matched #{recipient} => #{identity.user.email}"
-      forward_email(identity.user, message)
+      if identity.user.enabled
+        forward_email(identity.user, message)
+      else
+        logger.warn "User is disabled, skipping send"
+      end
     else
       puts "No match found for #{recipient}"
     end
