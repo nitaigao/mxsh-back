@@ -28,6 +28,6 @@ module Mxsh
     config.api_only = true
 
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_mxsh_session', expires: 7.days.from_now
   end
 end
