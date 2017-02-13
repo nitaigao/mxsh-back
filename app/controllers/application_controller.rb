@@ -10,13 +10,23 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_token
-    session[:auth] || bearer_token
+    session[:auth][:value] || bearer_token
   end
 
   def current_user
     decoded = JWT.decode(auth_token, nil, false)
     user_id = decoded.first['id']
     @user ||= User.find(user_id)
+  end
+
+  def sign_in(user)
+    token = JWT.encode({id: user.id}, nil, 'none')
+    session[:auth] = {
+      value: token,
+      httponly: true,
+      expires: 1.year.from_now
+    }
+    token
   end
 
   def authenticate_user!

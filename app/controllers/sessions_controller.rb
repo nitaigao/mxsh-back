@@ -10,12 +10,7 @@ class SessionsController < ApplicationController
   def authorize
     login = LoginToken.find_by!(token: authorize_params).destroy!
     @user = User.find_or_create_by(email: login.email)
-    @token = JWT.encode({id: @user.id}, nil, 'none')
-    session[:auth] = {
-      value: @token,
-      httponly: true,
-      expires: 1.year.from_now
-    }
+    @token = sign_in(@user)
   end
 
   private
