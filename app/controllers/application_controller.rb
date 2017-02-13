@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_token
-    session[:auth][:value] || bearer_token
+    cookies[:auth] || bearer_token
   end
 
   def current_user
@@ -21,9 +21,8 @@ class ApplicationController < ActionController::Base
 
   def sign_in(user)
     token = JWT.encode({id: user.id}, nil, 'none')
-    session[:auth] = {
+    cookies[:auth] = {
       value: token,
-      httponly: true,
       expires: 1.year.from_now
     }
     token
