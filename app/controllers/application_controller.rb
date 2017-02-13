@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_token
-    cookies[:auth] || bearer_token
+    session[:auth] || bearer_token
   end
 
   def current_user
