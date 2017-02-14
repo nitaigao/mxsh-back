@@ -14,9 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    @user ||= User.find(current_user_id)
+  end
+
+  def current_user_id
     decoded = JWT.decode(auth_token, nil, false)
-    user_id = decoded.first['id']
-    @user ||= User.find(user_id)
+    decoded.first['id']
   end
 
   def sign_in(user)
