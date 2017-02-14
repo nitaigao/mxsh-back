@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     login = LoginToken.find_by!(token: authorize_params).destroy!
     @user = User.find_or_create_by(email: login.email)
     @token = sign_in(@user)
+    fresh_when(@token)
   end
 
   private
