@@ -17,6 +17,7 @@ gem 'jwt'
 gem 'jbuilder'
 gem 'sentry-raven'
 gem 'slack-notifier'
+gem 'yajl-ruby', require: 'yajl'
 
 group :development, :test do
   gem 'byebug', platform: :mri
