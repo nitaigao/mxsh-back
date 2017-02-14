@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def bearer_token
     pattern = /^Bearer /
-    header  = request.headers["Authorization"] # <= env
+    header  = request.headers["Authorization"]
     header.gsub(pattern, '') if header && header.match(pattern)
   end
 
@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_id
-    decoded = JWT.decode(auth_token, nil, false)
-    decoded.first['id']
+    return nil if auth_token.nil?
+    JWT.decode(auth_token, nil, false).first['id']
   end
 
   def sign_in(user)
@@ -32,8 +32,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    current_user
-  rescue
-    head(:unauthorized)
+    head(:unauthorized) if current_user_id.nil?
   end
 end
