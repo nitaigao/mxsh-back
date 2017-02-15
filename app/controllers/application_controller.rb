@@ -35,6 +35,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    head(:unauthorized) if current_user_id.nil?
+    if current_user_id.nil?
+      cookies.delete(:auth)
+      head(:unauthorized) 
+    end
   end
 end
