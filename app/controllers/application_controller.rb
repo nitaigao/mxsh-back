@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
   def current_user_id
     return nil if auth_token.nil?
     JWT.decode(auth_token, Rails.application.secrets.secret_key_base).first['id']
+  rescue
+    nil
   end
 
   def sign_in(user)
