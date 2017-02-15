@@ -19,11 +19,11 @@ class ApplicationController < ActionController::Base
 
   def current_user_id
     return nil if auth_token.nil?
-    JWT.decode(auth_token, nil, false).first['id']
+    JWT.decode(auth_token, Rails.application.secrets.secret_key_base).first['id']
   end
 
   def sign_in(user)
-    token = JWT.encode({id: user.id}, nil, 'none')
+    token = JWT.encode({id: user.id}, Rails.application.secrets.secret_key_base)
     cookies[:auth] = {
       value: token,
       expires: 1.year.from_now
