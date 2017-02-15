@@ -13,7 +13,7 @@ RUN bundle install --without development:test
 RUN apk del make gcc g++ python
 RUN rm -rf /var/cache/apk/*
 
-EXPOSE 4000
+EXPOSE 3000
 
 COPY . /app
 
