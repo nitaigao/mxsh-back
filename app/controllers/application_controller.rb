@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
     token = JWT.encode({id: user.id}, Rails.application.secrets.secret_key_base)
     cookies[:auth] = {
       value: token,
-      expires: 1.year.from_now
+      expires: 1.year.from_now,
+      httponly: true
     }
     token
   end
