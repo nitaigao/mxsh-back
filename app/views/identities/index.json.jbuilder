@@ -1,1 +1,1 @@
-json.array! @identities, :email
+json.array! @identities, :email, :received

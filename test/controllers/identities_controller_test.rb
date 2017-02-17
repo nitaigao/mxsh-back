@@ -21,6 +21,7 @@ class IdentitiesControllerTest < ActionDispatch::IntegrationTest
 
     new_identity = JSON.parse(response.body).symbolize_keys
     assert new_identity[:email] != nil
+    assert new_identity[:received] == 0
   end
 
   test "cant create an identity without a user" do
