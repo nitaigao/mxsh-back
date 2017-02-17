@@ -10,6 +10,7 @@ class ForwardEmailJob < ApplicationJob
       puts "Matched #{recipient} => #{identity.user.email}"
       if identity.user.enabled
         forward_email(identity.user, message)
+        identity.increment!(:received)
       else
         logger.warn "User is disabled, skipping send"
       end
